@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head  th:replace="layout :: site-head">
+</head>
+<!--  <body class="col-sm-8 col-sm-offset-2"> -->
+<body>
+<header th:replace="layout :: site-header"></header>
+<div class="w3-center">
+	<!--  <div class="row">
+		<div class="col-md-5 col-md-offset-4"> -->
+			<h1 th:text="${'Prijava korisnika'}"></h1>
+			<br/><br/>
+			<form method="POST" th:object="${login}" th:action="@{/login}">
+				<div th:if="${error}" class="alert alert-danger" style="width: 20%;margin: auto">
+					<p th:text="${error}"></p>	
+				</div>
+				<div th:if="${logout}" class="alert alert-success" style="width: 20%;margin: auto">
+					<p th:text="${logout}"></p>	
+				</div>			
+				<div class="form-group" th:class="${error} ? 'form-group has-error' : 'form-group'">
+					<label class="form-control-label" th:text="${'Korisničko ime'}"></label>
+					<div class="container" style="width: 20%"><input type="text" class="form-control" name="username" id="username" autofocus="autofocus"/></div>
+				</div>				
+				<div class="form-group" th:class="${error} ? 'form-group has-error' : 'form-group'">
+				<label class="form-control-label" th:text="${'Lozinka'}"></label>
+					<div class="container" style="width: 20%">
+						<input type="password" class="form-control" name="password" id="password"/>
+					</div>
+				</div>
+				<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>				  
+				<button type="submit" class="w3-btn w3-round-large w3-blue" th:text="${'Prijavi'}"></button>			    
+			</form>
+	<!-- </div>
+	</div> -->
+</div>
+<footer th:replace="layout :: site-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="layout :: site-head">
+</head>
+<body>
+<header th:replace="layout :: site-header"></header>
+<div class="w3-container" align="center">
+		<h1 th:text="${'Dodavanje novih prijava'}"></h1>
+		<br/><br/>
+		<p th:text="${'Novi ekran za registraciju administratora.'}"></p>	
+		<p th:text="${'Napisao: ' + prijavaKvarova.idZaposlenikPrijavio.prezime +  ', korisničko ime: ' + prijavaKvarova.idZaposlenikPrijavio.username}"></p>
+		<p>Nalazite se u prijavi <span th:title="${prijavaKvarova.opisPrijave}" th:text="${prijavaKvarova.nazivPrijave}"></span></p>	
+			<a th:href="@{/novaPrijavaFresh}">
+			<button class="w3-btn w3-round w3-blue">Napravi novu prijavu</button>	
+			</a>
+			<br/>				
+	</div>
+<footer th:replace="layout :: site-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+</head>
+<body>
+<header th:replace="layout :: site-header">></header>
+<div class="w3-center">
+	<h1 th:text="${'Pregled prijave prije spremanja'}"></h1>
+	<br/><br/>		
+		<table class="w3-table-all" style="width: 40%;margin: 0 auto">
+			<tr>			
+				<td th:text="${'Zaposlenik: ' + prijavaKvarova.idZaposlenikPrijavio.prezime +  ', korisničko ime: ' + prijavaKvarova.idZaposlenikPrijavio.username}"></td>
+			</tr>
+			<tr>			
+				<td th:text="${'Kategorija: ' + prijavaKvarova.kategorija.naziv}"></td>
+			</tr>
+			<tr>				
+				<td th:text="${'Hitnost: ' + prijavaKvarova.hitnost.naziv}"></td>		
+			</tr>
+			<tr>				
+				<td th:text="${'Naslov prijave: ' + prijavaKvarova.nazivPrijave}"></td>	
+			</tr>
+			<tr>				
+				<td th:text="${'Opis prijave: ' + prijavaKvarova.opisPrijave}"></td>	
+			</tr>
+		</table>
+</div>
+<div class="w3-center">		
+	<a th:href="@{/novaPrijava}"><button class="w3-btn w3-round w3-blue">Povratak</button></a>&nbsp; 
+	<a th:href="@{/spremiNovuPrijavu}"><button class="w3-btn w3-round w3-blue">Spremi prijavu</button></a>
+</div>
+<footer th:replace="layout :: site-footer"></footer>
+</body>
+</html>
